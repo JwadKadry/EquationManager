@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="#99FFFFFF"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/degreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="דרגת הפולינום"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/coefficientsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="מקדמים"
+            android:textSize="19sp"
+            android:textColor="#555555"/>
+    </LinearLayout>
+
+    <!-- כפתור עריכה -->
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_menu_edit"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="ערוך פולינום"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- כפתור מחיקה -->
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="מחק פולינום"/>
+</LinearLayout>
