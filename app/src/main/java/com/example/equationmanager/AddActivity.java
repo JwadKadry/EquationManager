@@ -111,7 +111,7 @@ public class AddActivity extends AppCompatActivity {
 
 
     // שמירת הפולינום למסד הנתונים
-    private void savePolynomial() {
+   /* private void savePolynomial() {
         StringBuilder coefficients = new StringBuilder();
         for (EditText field : coefficientFields) {
             String value = field.getText().toString().trim();
@@ -132,5 +132,33 @@ public class AddActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Polynomial Saved!", Toast.LENGTH_SHORT).show();
         finish();
+    }*/
+    private void savePolynomial() {
+        StringBuilder coefficients = new StringBuilder();
+        for (EditText field : coefficientFields) {
+            String value = field.getText().toString().trim();
+
+            // המרה למספר ואז חזרה למחרוזת כדי להסיר אפסים מובילים
+            if (!value.isEmpty()) {
+                value = String.valueOf(Integer.parseInt(value));
+            } else {
+                value = "0"; // ברירת מחדל אם לא נכתב כלום
+            }
+
+            coefficients.append(value).append(",");
+        }
+
+        // הסרת פסיק מיותר בסוף
+        if (coefficients.length() > 0) {
+            coefficients.setLength(coefficients.length() - 1);
+        }
+
+        // שמירת הנתונים למסד
+        PolynomialDatabase database = new PolynomialDatabase(this);
+        database.addPolynomial(selectedDegree, coefficients.toString());
+
+        Toast.makeText(this, "Polynomial Saved!", Toast.LENGTH_SHORT).show();
+        finish();
     }
+
 }
